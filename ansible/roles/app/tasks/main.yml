@@ -1,0 +1,44 @@
+---
+# application tasks to be customized and to run after the main provision
+- name: Create Drupal Symlink
+  sudo: yes
+  file: src=/vagrant/drupal_latest/ dest=/vagrant/www/drupal owner=vagrant group=vagrant state=link 
+
+- name: Create AngularJS Symlink
+  sudo: yes
+  file: src=/vagrant/angular/ dest=/vagrant/www/angular owner=vagrant group=vagrant state=link 
+
+- shell: apache2 -v
+  register: apache_version
+
+- name: Change drupal apache2.4 site
+  sudo: yes
+  template: src=drupal24.conf.tpl dest=/etc/apache2/sites-available/drupal.conf
+  notify: restart apache
+  when: apache_version.stdout.find('Apache/2.4.') != -1
+
+- name: Change drupal apache2.2 site
+  sudo: yes
+  template: src=drupal22.conf.tpl dest=/etc/apache2/sites-available/drupal
+  notify: restart apache
+  when: apache_version.stdout.find('Apache/2.2.') != -1
+
+
+- name: a2ensite {{ drupal.confname }}
+  command: a2ensite {{ drupal.confname }}
+  args:
+    creates: /etc/apache2/sites-enabled/{{ drupal.confname }}.conf
+  notify: restart apache
+
+- name: Instal Drush
+  script: /vagrant/drush.sh
+
+# - name: Change drupal nginx site
+#   sudo: yes
+#   template: src=drupal.tpl dest=/etc/nginx/sites-available/drupal
+#   notify: restart nginx
+# 
+# - name: Enable drupal site
+#   sudo: yes
+#   file: src=/etc/nginx/sites-available/drupal dest=/etc/nginx/sites-enabled/drupal owner=vagrant group=vagrant state=link 
+#   notify: restart nginx

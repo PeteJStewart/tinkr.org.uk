@@ -1,0 +1,47 @@
+name: Tinkr
+description: Tinkr Drupal 8 Theme.  Made to be used with Inuit OOCSS framework.
+type: theme
+core: 8.x
+libraries:
+  - tinkr/global-css
+  - tinkr/global-js
+stylesheets-remove:
+  - '@system/css/components/ajax-progress.module.css'
+  - '@system/css/components/align.module.css'
+  - '@system/css/components/autocomplete-loading.module.css'
+  - '@system/css/components/fieldgroup.module.css'
+  - '@system/css/components/container-inline.module.css'
+  - '@system/css/components/clearfix.module.css'
+  - '@system/css/components/details.module.css'
+  - '@system/css/components/hidden.module.css'
+  - '@system/css/components/item-list.module.css'
+  - '@system/css/components/js.module.css'
+  - '@system/css/components/nowrap.module.css'
+  - '@system/css/components/position-container.module.css'
+  - '@system/css/components/progress.module.css'
+  - '@system/css/components/reset-appearance.module.css'
+  - '@system/css/components/resize.module.css'
+  - '@system/css/components/sticky-header.module.css'
+  - '@system/css/components/tabledrag.module.css'
+  - '@system/css/components/tablesort.module.css'
+  - '@system/css/components/tree-child.module.css'
+  - '@views/css/views.module.css'
+  - '@stable/css/system/components/ajax-progress.module.css'
+  - '@stable/css/system/components/align.module.css'
+  - '@stable/css/system/components/autocomplete-loading.module.css'
+  - '@stable/css/system/components/fieldgroup.module.css'
+  - '@stable/css/system/components/container-inline.module.css'
+  - '@stable/css/system/components/clearfix.module.css'
+  - '@stable/css/system/components/details.module.css'
+  - '@stable/css/system/components/item-list.module.css'
+  - '@stable/css/system/components/js.module.css'
+  - '@stable/css/system/components/nowrap.module.css'
+  - '@stable/css/system/components/position-container.module.css'
+  - '@stable/css/system/components/progress.module.css'
+  - '@stable/css/system/components/reset-appearance.module.css'
+  - '@stable/css/system/components/resize.module.css'
+  - '@stable/css/system/components/sticky-header.module.css'
+  - '@stable/css/system/components/tabledrag.module.css'
+  - '@stable/css/system/components/tablesort.module.css'
+  - '@stable/css/system/components/tree-child.module.css'
+  - '@stable/css/views/views.module.css'
